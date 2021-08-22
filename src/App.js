@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import "./App.css";
+import Button from "./components/Button";
+import DoorContent from "./components/DoorContent";
 
 function App() {
+  const [floor, setFloor] = useState(1);
+
+  const changeFloor = (floorNum) => {
+    if (floor !== floorNum) {
+      setFloor(floorNum);
+    }
+  };
+
+  const Buttons = [];
+  for (let i = 1; i < 4; i++) {
+    Buttons.push(<Button key={i} floorNum={i} changeFloor={changeFloor} />);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DoorContent floor={floor} />
+      {Buttons}
     </div>
   );
 }
