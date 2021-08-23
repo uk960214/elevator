@@ -3,7 +3,7 @@ body {
 }
 
 .reveal-wrapper {
-  margin: 200px;
+  margin: 50px;
   margin-bottom: 50px;
   border: solid 2px #cccccc;
   position: relative;
@@ -11,7 +11,7 @@ body {
 }
 
 .reveal-content {
-  padding: 100px;
+  padding: 200px 100px;
   color: #000000;
   background: #ffffff;
 }
