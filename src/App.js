@@ -5,11 +5,14 @@ import Button from "./components/Button";
 import DoorContent from "./components/DoorContent";
 
 function App() {
-  const [floor, setFloor] = useState(1);
+  const [floor, setFloor] = useState(null);
+  const [isReady, setReady] = useState(false);
 
   const changeFloor = (floorNum) => {
     if (floor !== floorNum) {
-      setFloor(floorNum);
+      setReady(false);
+      setTimeout(() => setFloor(floorNum), 4000);
+      setTimeout(() => setReady(true), 8000);
     }
   };
 
@@ -20,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <DoorContent floor={floor} />
+      <DoorContent className="content" floor={floor} isReady={isReady} />
       {Buttons}
     </div>
   );

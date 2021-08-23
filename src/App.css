@@ -5,6 +5,7 @@ body {
 .reveal-wrapper {
   margin: 200px;
   margin-bottom: 50px;
+  border: solid 2px #cccccc;
   position: relative;
   overflow: hidden;
 }
@@ -21,8 +22,25 @@ body {
   height: 100%;
   position: absolute;
   top: 0;
-  left: 0;
   transition: left 4s ease-in-out;
+  z-index: 2;
+}
+
+.door-left-enter {
+  left: 0;
+}
+
+.door-left-enter-active,
+.door-left-enter-done {
+  left: -50%;
+}
+
+.door-left-exit {
+  left: -50%;
+}
+
+.door-left-exit-active {
+  left: 0;
 }
 
 .door-right {
@@ -33,4 +51,22 @@ body {
   top: 0;
   right: 0;
   transition: right 4s ease-in-out;
+  z-index: 2;
+}
+
+.door-right-enter {
+  right: 0;
+}
+
+.door-right-enter-active,
+.door-right-enter-done {
+  right: -50%;
+}
+
+.door-right-exit {
+  right: -50%;
+}
+
+.door-right-exit-active {
+  right: 0;
 }

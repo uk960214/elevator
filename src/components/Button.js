@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 export default function Button({ floorNum, changeFloor }) {
-  useEffect(() => {
-    return setTimeout(() => {}, 5000);
-  }, []);
   return (
     <input
       type="button"
