@@ -6,27 +6,30 @@ body {
   margin: 0;
 }
 
-.reveal-wrapper {
+/* elevator */
+.door-container {
   border: solid 2px #cccccc;
   position: relative;
   overflow: hidden;
   width: 80%;
   margin: auto;
+  margin-top: 10vh;
 }
 
-.reveal-content {
+.door-inner-content {
   padding: 200px 100px;
   color: #000000;
   background: #ffffff;
 }
 
+/* left-door */
 .door-left {
   background: #1f122c;
   width: 50%;
   height: 100%;
   position: absolute;
   top: 0;
-  transition: left 4s ease-in-out;
+  transition: left 2s ease-in-out;
   z-index: 2;
 }
 
@@ -47,6 +50,7 @@ body {
   left: 0;
 }
 
+/* right-door */
 .door-right {
   background: #1f122c;
   width: 50%;
@@ -54,7 +58,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  transition: right 4s ease-in-out;
+  transition: right 2s ease-in-out;
   z-index: 2;
 }
 
@@ -75,62 +79,8 @@ body {
   right: 0;
 }
 
-/* ANIMATIONS */
-.container {
-  width: 100vw;
-  position: relative;
-}
-
-.slide {
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  transition: transform 3000ms ease-in-out;
-}
-
-.slide-enter {
-  transform: translateX(100vw);
-}
-.slide-enter-active {
-  transform: translateX(0);
-}
-.slide-exit {
-  transform: translateX(0);
-}
-.slide-exit-active {
-  transform: translateX(-100vw);
-}
-
-/* notice */
-
-.notice {
-  width: 80%;
-  margin: auto;
-}
-
-.notice-main {
-  padding: 100px 100px;
-  text-align: center;
-  border: solid 2px #ccc;
-}
-
-.notice-legs {
-  width: 100%;
-  display: flex;
-  list-style-type: none;
-  position: relative;
-}
-
-.notice-legs li {
-  width: 20%;
-  padding: 20px 0;
-  border: solid 2px #ccc;
-}
-
-.rip {
-  transform: rotate(20deg) translateY(30px);
-  transition: transform 0.5s ease-in-out;
-}
-.hide {
-  display: none;
+/* buttons */
+input[type="button"] {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
 }

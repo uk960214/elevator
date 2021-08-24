@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Button({ floorNum, changeFloor }) {
+export default function FloorButton({ floorNum, changeFloor }) {
   return (
     <input
       type="button"
