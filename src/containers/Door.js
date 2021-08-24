@@ -9,9 +9,7 @@ import closeSfx from "../sound/close.mp3";
 import moveSfx from "../sound/move.mp3";
 import arriveSfx from "../sound/arrive.wav";
 
-import bgm from "../sound/bgm.mp3";
-
-export default function Door() {
+export default function Door({ sound }) {
   const [floor, setFloor] = useState(1);
   const [isReady, setReady] = useState(false);
 
@@ -22,31 +20,32 @@ export default function Door() {
 
   const changeFloor = (floorNum) => {
     if (floor !== floorNum) {
-      setReady(false);
-      closePlay();
-      setTimeout(() => movePlay(), 4500);
-      setTimeout(() => setFloor(floorNum), 4000);
-      setTimeout(() => arrivePlay(), 9000);
-      setTimeout(() => {
-        openPlay();
-        setReady(true);
-      }, 9000);
+      if (sound) {
+        setReady(false);
+        closePlay();
+        setTimeout(() => movePlay(), 4500);
+        setTimeout(() => setFloor(floorNum), 4000);
+        setTimeout(() => arrivePlay(), 8500);
+        setTimeout(() => {
+          openPlay();
+          setReady(true);
+        }, 9500);
+      } else {
+        setReady(false);
+        setTimeout(() => setFloor(floorNum), 4000);
+        setTimeout(() => setReady(true), 9500);
+      }
     }
   };
 
-  const doorOpen = () => {
+  if (isReady && sound) {
     openPlay();
-    setReady(true);
-  };
-
-  const [bgmPlay] = useSound(bgm, { volume: 0.3, interrupt: true });
-
-  const playBgm = () => {
-    bgmPlay();
-  };
+  }
 
   useEffect(() => {
-    setTimeout(() => doorOpen(), 2000);
+    setTimeout(() => {
+      setReady(true);
+    }, 3500);
     return;
   }, []);
 
@@ -59,7 +58,6 @@ export default function Door() {
     <div className="Door">
       <DoorContent className="content" floor={floor} isReady={isReady} />
       {Buttons}
-      <input type="button" value="play BGM" onClick={() => playBgm()} />
     </div>
   );
 }
